@@ -1,0 +1,54 @@
+{
+	"name": "simple",
+	"displayName": "Simple",
+	"description": "Simple extension for Visual Studio Code",
+	"version": "0.1.1",
+	"publisher": "appcypher",
+	"repository": "https://github.com/appcypher/simple-vscode",
+	"engines": {
+		"vscode": "^0.10.5"
+	},
+	"icon": "icon.png",
+	"keywords": [
+		"simple",
+		"appcypher",
+		"nigeria",
+		"language"
+	],
+	"categories": [
+		"Programming Languages",
+		"Debuggers",
+		"Linters",
+		"Snippets",
+		"Formatters",
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:simple"
+	],
+	"main": "./out/simpleMain",
+	"contributes": {
+		"languages": [
+			{
+				"id": "simple",
+				"aliases": [
+					"Simple",
+					"simple"
+				],
+				"extensions": [
+					".sim"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "simple",
+				"scopeName": "source.simple",
+				"path": "./syntaxes/simple.tmLanguage.json"
+			}
+		]
+	},
+	"author": "appcypher",
+	"license": "ISC"
+}

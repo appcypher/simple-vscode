@@ -1,0 +1,171 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Simple",
+	"patterns": [
+	    {
+	        "include": "#numbers"
+	    },
+	    {
+	        "include": "#lambda"
+	    },
+	    {
+	        "include": "#brackets"
+	    },
+	    {
+	        "include": "#multiline_comments"
+	    },
+	    {
+	        "include": "#singleline_comments"
+	    },
+	    {
+	        "include": "#dot_notation"
+	    },
+	    {
+	        "include": "#keywords"
+	    },
+	    {
+	        "include": "#function_calls"
+	    },
+	    {
+			"include": "#single-line-strings"
+	    },
+	    {
+	        "include": "#operators"
+	    }
+	],
+	"repository": {
+	    "numbers":{
+	        "patterns": [
+	            {
+	                "match": "\\b0x(_?[A-Fa-f0-9])*((\\.(_?[A-Fa-f0-9])+)?(p[+-]?)?[A-Fa-f0-9_]+)?('[A-Za-z][A-Za-z0-9]*)?",
+	                "name": "constant.numeric.simple"
+	            },
+	            {
+	                "match": "\\b0o(_?[0-8])*((\\.(_?[0-8])+)?(p[+-]?)?[0-8_]+)?('[A-Za-z][A-Za-z0-9]*)?",
+	                "name": "constant.numeric.simple"
+	            },
+	            {
+	                "match": "\\b0b(_?[01])*((\\.(_?[01])+)?(p[+-]?)?[01_]+)?('[A-Za-z][A-Za-z0-9]*)?",
+	                "name": "constant.numeric.simple"
+	            },
+	            {
+	                "match": "\\b[0-9](_?[0-9])*((\\.(_?[0-9])+)?(e[+-]?)?(_?[0-9])+)?('[A-Za-z][A-Za-z0-9]*)?",
+	                "name": "constant.numeric.simple"
+	            }
+	        ]
+		},
+	    "brackets":{
+	        "patterns": [
+	            {
+	                "match": "(?:\\(|\\)|\\[|\\]|,)(?!('|(?:\\.'))*\\.?')",
+	                "name": "meta.bracket.simple"
+	            }
+	        ]
+		},
+	    "multiline_comments":{
+	        "patterns": [
+				{
+					"begin": "/\\*",
+					"beginCaptures": {
+					"0": {
+						"name": "punctuation.definition.comment.begin.simple"
+					}
+					},
+					"end": "\\*/",
+					"endCaptures": {
+					"0": {
+						"name": "punctuation.definition.comment.end.simple"
+					}
+					},
+					"name": "comment.block.number-sign-equals.simple"
+				}
+			]
+		},
+		"singleline_comments":{
+			"patterns": [
+	            {
+	                "begin": "#",
+	                "beginCaptures":{
+	                    "0":{
+	                        "name": "punctuation.definition.comment.simple"}},
+	                "end": "$",
+	                "name": "comment.line.simple"
+	            }
+	        ]
+		},
+	    "dot_notation":{
+	        "patterns": [
+	            {
+	                "match": "(?<!\\.)(?:\\.)(\\$?[A-Za-z_]([_A-Za-z0-9]*[A-Za-z0-9]+)?)[!?]?\\b",
+	                "captures":{
+	                    "1":{
+	                        "name": "variable.language.simple"}}
+	            }
+	        ]
+		},
+	    "keywords":{
+	        "patterns": [
+	            {
+	                "match": "\\b(?:true|false|crlf|display|call)\\b",
+	                "name": "constant.language.simple"
+	            },
+	            {
+	                "match": "\\b(?:for|end|if|else|elif|do|while|try|catch|switch|case|default|break|continue)\\b",
+	                "name": "keyword.control.simple"
+	            },
+	            {
+	                "match": "\\b(?:class|block|private|module)\\b",
+	                "name": "storage.modifier.simple"
+	            }
+	        ]
+		},
+	    "function_calls":{
+	        "patterns": [
+	            {
+	                "match": "([A-Za-z_]([_A-Za-z0-9]*[A-Za-z0-9]+)?)(?=\\s*\\()",
+	                "name": "entity.name.function.simple"
+	            }
+	        ]
+		},
+	    "single-line-strings":{
+	        "patterns": [
+	            {
+	                "begin": "\"",
+	                "beginCaptures":{
+	                    "0":{
+	                        "name": "punctuation.definition.string.begin.simple"}},
+	                "end": "\"",
+	                "endCaptures":{
+	                    "0":{
+	                        "name": "punctuation.definition.string.end.simple"}},
+	                "name": "string.quoted.double.simple",
+	                "patterns": [
+	                    {
+	                        "include": "#string_escaped_chars"
+	                    },
+	                    {
+	                        "include": "#string_interpolate"
+	                    }
+	                ]
+	            }
+	        ]
+		},
+	    "string_escaped_chars":{
+	        "patterns": [
+	            {
+	                "match": "\\\\(t|n|r|b|\"|'|\\$|\\\\)",
+	                "name": "constant.character.escape.simple"
+	            }
+	        ]
+		},
+	    "operators":{
+	        "patterns": [
+				{
+					"match": "=|\\||\\&|\\>|\\<|!|\\+|-|\\*|\\/|\\^|%|\\?|\\b(in|to)\\b",
+					"name": "keyword.operator.simple"
+				}
+			]
+		}
+	},
+	"scopeName": "source.simple"
+}
