@@ -110,7 +110,7 @@
 	                "name": "constant.language.simple"
 	            },
 	            {
-	                "match": "\\b(?:for|end|if|else|elif|do|while|try|catch|switch|case|default|break|continue)\\b",
+	                "match": "\\b(?:for|end|if|else|elif|do|while|try|catch|switch|case|default|break|continue|in|to|new|step)\\b",
 	                "name": "keyword.control.simple"
 	            },
 	            {
@@ -161,7 +161,7 @@
 	    "operators":{
 	        "patterns": [
 				{
-					"match": "=|\\||\\&|\\>|\\<|!|\\+|-|\\*|\\/|\\^|%|\\?|\\b(in|to)\\b",
+					"match": "=|\\||\\&|\\>|\\<|!|\\+|-|\\*|\\/|\\^|%|\\?",
 					"name": "keyword.operator.simple"
 				}
 			]

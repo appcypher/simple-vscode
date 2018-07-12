@@ -25,9 +25,13 @@ None for now.
 None for now.
 
 ## Release Notes
+### 0.1.2
+
+Fixed syntax highlighting issues.
+
 ### 0.1.1
 
-Fixed some syntax problems.
+Fixed syntax highlighting issues.
 
 ### 0.1.0
 
