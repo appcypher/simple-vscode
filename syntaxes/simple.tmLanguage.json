@@ -106,7 +106,7 @@
 	    "keywords":{
 	        "patterns": [
 	            {
-	                "match": "\\b(?:true|false|crlf|display|call)\\b",
+	                "match": "\\b(?:true|false|crlf|display|call|null)\\b",
 	                "name": "constant.language.simple"
 	            },
 	            {
@@ -138,30 +138,25 @@
 	                "endCaptures":{
 	                    "0":{
 	                        "name": "punctuation.definition.string.end.simple"}},
-	                "name": "string.quoted.double.simple",
-	                "patterns": [
-	                    {
-	                        "include": "#string_escaped_chars"
-	                    },
-	                    {
-	                        "include": "#string_interpolate"
-	                    }
-	                ]
-	            }
-	        ]
-		},
-	    "string_escaped_chars":{
-	        "patterns": [
-	            {
-	                "match": "\\\\(t|n|r|b|\"|'|\\$|\\\\)",
-	                "name": "constant.character.escape.simple"
+	                "name": "string.quoted.double.simple"
+				},
+				{
+	                "begin": "'",
+	                "beginCaptures":{
+	                    "0":{
+	                        "name": "punctuation.definition.string.begin.simple"}},
+	                "end": "'",
+	                "endCaptures":{
+	                    "0":{
+	                        "name": "punctuation.definition.string.end.simple"}},
+	                "name": "string.quoted.double.simple"
 	            }
 	        ]
 		},
 	    "operators":{
 	        "patterns": [
 				{
-					"match": "=|\\||\\&|\\>|\\<|!|\\+|-|\\*|\\/|\\^|%|\\?",
+					"match": "=|\\||\\&|\\>|\\<|!|\\+|-|\\*|\\/|\\^|%|\\?|@",
 					"name": "keyword.operator.simple"
 				}
 			]
